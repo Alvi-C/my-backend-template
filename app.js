@@ -14,8 +14,15 @@ import xss from 'xss';
 // Importing configuration and middleware
 import corsOptions from './configs/corsConfigs.js';
 import sessionConfigs from './configs/sessionConfigs.js';
+import { ErrorHandler, errorMiddleware } from './middlewares/errorHandler.js';
+import logger from './middlewares/logger.js';
 
+// Importing routes
 import routes from './routes/routes.js';
+
+//--------------------------------------------------
+// Application setup
+//--------------------------------------------------
 
 // Initialize Express app
 const app = express();
@@ -49,7 +56,7 @@ app.use(
 );
 
 // xss Middleware to sanitize incoming request data to protect against XSS attacks
-app.use((req, res, next) => {
+app.use((req, _res, next) => {
     const sanitize = (obj) => {
         const result = {};
         Object.keys(obj).forEach((key) => {
@@ -83,8 +90,27 @@ app.use(hpp());
 // File upload middleware
 app.use(multer().any());
 
+// Custom logger middleware
+app.use(logger);
+
 // Application routes/endpoints
 app.use(routes);
 
-// Export the configured Express app
+//--------------------------------------------------
+// Handle errors
+//--------------------------------------------------
+
+// Middleware to handle routes not found
+app.all('*', (req, _res, next) => {
+    const err = new ErrorHandler(
+        'Resources not found on this server!',
+        404,
+        `This ${req.originalUrl} might be due to missing data or an incorrect URL.`
+    );
+    next(err);
+});
+
+// Global error handling middleware
+app.use(errorMiddleware);
+
 export default app;

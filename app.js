@@ -15,6 +15,8 @@ import xss from 'xss';
 import corsOptions from './configs/corsConfigs.js';
 import sessionConfigs from './configs/sessionConfigs.js';
 
+import routes from './routes/routes.js';
+
 // Initialize Express app
 const app = express();
 
@@ -80,6 +82,9 @@ app.use(hpp());
 
 // File upload middleware
 app.use(multer().any());
+
+// Application routes/endpoints
+app.use(routes);
 
 // Export the configured Express app
 export default app;

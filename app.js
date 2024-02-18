@@ -10,6 +10,7 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import multer from 'multer';
 import xss from 'xss';
+// import path from 'path';
 
 // Importing configuration and middleware
 import corsOptions from './configs/corsConfigs.js';
@@ -32,6 +33,8 @@ dotenv.config();
 
 // Set Express to trust the first proxy
 app.set('trust proxy', 1);
+
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 // Security middleware
 app.use(helmet());
@@ -82,6 +85,9 @@ app.use((req, _res, next) => {
 // Cookie and session middleware
 app.use(cookieParser());
 app.use(session(sessionConfigs));
+
+// Set static folder
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Security middleware against NoSQL injections and HTTP Parameter Pollution
 app.use(ExpressMongoSanitize());

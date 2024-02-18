@@ -33,7 +33,7 @@ const logError = (err) => {
     }
 
     // Always log the full stack for in-depth analysis; consider this for development mode only
-    console.log('🌼------------------- Stack Trace -------------------🌼');
+    console.log('🌼------------------- Stack Trace ---------------------🌼');
     console.log(err.stack);
 
     // End of error block

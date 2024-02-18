@@ -1,0 +1,47 @@
+{
+	// Theme
+	"workbench.colorTheme": "Andromeda Bordered",
+
+	// Code formatting
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"[javascript]": {
+		"editor.formatOnSave": false,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	// Disable built-in syntax checking
+	"javascript.validate.enable": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.tslint": "explicit",
+		"source.organizeImports": "explicit"
+	},
+	"eslint.alwaysShowStatus": true,
+
+	// Emmet
+	"emmet.triggerExpansionOnTab": true,
+
+	// Custom word dictionary for spell checking
+	// "cSpell.words": [
+	// 	"comix",
+	// 	"fieldname",
+	// 	"inhouse",
+	// 	"remo",
+	// 	"remoforce",
+	// 	"remostarts"
+	// ],
+
+	// Custom extensions (Turbo Console Log)
+	"turboConsoleLog.logMessagePrefix": "🌼",
+	"turboConsoleLog.logMessageSuffix": "🌼",
+	"turboConsoleLog.insertEmptyLineAfterLogMessage": true,
+	"turboConsoleLog.insertEnclosingClass": true,
+	"turboConsoleLog.delimiterInsideMessage": "🔥🔥",
+	"turboConsoleLog.quote": "'",
+	"turboConsoleLog.addSemicolonInTheEnd": true,
+
+	// Font settings
+	"editor.fontFamily": "Operator Mono Lig, Monolisa",
+	"editor.fontSize": 17
+}

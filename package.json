@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Express-mongo-server-setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "server"
+  ],
+  "author": "Jahedul Huda Chowdhury (Alvi)",
+  "license": "ISC"
+}
